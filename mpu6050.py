@@ -49,7 +49,7 @@ def read_raw_data(addr):
 
 
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
-Device_Address = 0x16   # MPU6050 device address
+Device_Address = 0x68   # MPU6050 device address
 
 MPU_Init()
 
@@ -76,7 +76,6 @@ while True:
 	Gy = gyro_y/131.0
 	Gz = gyro_z/131.0
 	
-	print("Gx: "+ str(Gx))
-	print("Gy: "+ str(Gy))
-	#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
+
+	print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
 	sleep(0.1)
