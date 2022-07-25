@@ -76,6 +76,7 @@ while True:
 	Gy = gyro_y/131.0
 	Gz = gyro_z/131.0
 	
-
-	print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
-	sleep(1)
+	print("Gx: "+ Gx)
+	print("Gy: "+Gy)
+	#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
+	sleep(0.1)
