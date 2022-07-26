@@ -61,7 +61,7 @@ while True:
 
 	listAccX = []
 	
-	for i in range(0,5):
+	for i in range(0,10):
 		#Read Accelerometer raw value
 		acc_x = read_raw_data(ACCEL_XOUT_H)
 		acc_y = read_raw_data(ACCEL_YOUT_H)
@@ -88,8 +88,8 @@ while True:
 		#sleep(0.1)
 	listAccX.sort()
 	aceleracionX = 0;
-	for i in range(1,4):
+	for i in range(1,9):
 		aceleracionX += listAccX[i]
 
-	aceleracionX = aceleracionX/4
+	aceleracionX = aceleracionX/9
 	print(aceleracionX)
