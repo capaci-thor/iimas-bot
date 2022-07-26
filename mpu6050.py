@@ -135,3 +135,4 @@ while True:
 
 	print("Ax: " + str(ax) + " Ay: "+ str(ay) + " Az: "+ str(az))
 	print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
+	sleep(1)
