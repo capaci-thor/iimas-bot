@@ -63,49 +63,75 @@ while True:
 	listAccY = []
 	listAccZ = []
 
+	listGyroX = []
+	listGyroY = []
+	listGyroZ = []
 
 	
 	for i in range(0,10):
-		#Read Accelerometer raw value
+		#Read Accelerometer raw value and convert to g units
 		acc_x = read_raw_data(ACCEL_XOUT_H)/16384.0
 		acc_y = read_raw_data(ACCEL_YOUT_H)/16384.0
 		acc_z = read_raw_data(ACCEL_ZOUT_H)/16384.0
 		
 		#Read Gyroscope raw value
+		#and scale range +/- 250 degree/C as per sensitivity scale factor
 		gyro_x = read_raw_data(GYRO_XOUT_H)/131.0
 		gyro_y = read_raw_data(GYRO_YOUT_H)/131.0
 		gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
 		
-		#Full scale range +/- 250 degree/C as per sensitivity scale factor
-		Ax = acc_x
-		Ay = acc_y
-		Az = acc_z
+		#Accelerometer conver from g to m/s2
+		Ax = acc_x*9.81
+		Ay = acc_y*9.81
+		Az = acc_z*9.81
 
 		listAccX.append(Ax)
 		listAccY.append(Ay)
 		listAccZ.append(Az)
 		
-		Gx = round(gyro_x, 2)
-		Gy = round(gyro_y, 2)
-		Gz = round(gyro_z, 2)
+		Gx = gyro_x
+		Gy = gyro_y
+		Gz = gyro_z
+		listGyroX.append(Gx)
+		listGyroY.append(Gy)
+		listGyroZ.append(Gz)
 		
-
-		#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
-		#sleep(0.1)
+	#Sort all values
 	listAccX.sort()
 	listAccY.sort()
 	listAccZ.sort()
 
+	listGyroX.sort()
+	listGyroY.sort()
+	listGyroZ.sort()
+
+
 	ax = 0
 	ay = 0
 	az = 0
+	gx = 0
+	gy = 0
+	gz = 0
+
+	#Average of every variable
 	for i in range(1,9):
 		ax += listAccX[i]
 		ay += listAccY[i]
 		az += listAccZ[i]
+
+		gx += listGyroX[i]
+		gy += listGyroY[i]
+		gz += listGyroZ[i]
+
 	ax = round( ax/9, 2)
 	ay = round( ay/9, 2)
 	az = round( az/9, 2)
 
 
-	print("Ax: " + str(ax*9.81) + " Ay: "+ str(ay*9.81) + " Az: "+ str(az*9.81))
+	gx = round( gx/9, 2)
+	gy = round( gy/9, 2)
+	gz = round( gz/9, 2)
+
+
+	print("Ax: " + str(ax) + " Ay: "+ str(ay) + " Az: "+ str(az))
+	print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
