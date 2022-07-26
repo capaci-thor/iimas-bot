@@ -77,9 +77,9 @@ while True:
 		gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
 		
 		#Full scale range +/- 250 degree/C as per sensitivity scale factor
-		Ax = round(acc_x, 2)
-		Ay = round(acc_y, 2)
-		Az = round(acc_z, 2)
+		Ax = acc_x
+		Ay = acc_y
+		Az = acc_z
 
 		listAccX.append(Ax)
 		listAccY.append(Ay)
@@ -103,9 +103,9 @@ while True:
 		ax += listAccX[i]
 		ay += listAccY[i]
 		az += listAccZ[i]
-	ax = ax/9
-	ay = ay/9
-	az = az/9
+	ax = round( ax/9, 2)
+	ay = round( ay/9, 2)
+	az = round( az/9, 2)
 
 
 	print("Ax: " + str(ax) + "Ay: "+ str(ay) + "Az: "+ str(az))
