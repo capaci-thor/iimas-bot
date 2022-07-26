@@ -108,4 +108,4 @@ while True:
 	az = round( az/9, 2)
 
 
-	print("Ax: " + str(ax) + "Ay: "+ str(ay) + "Az: "+ str(az))
+	print("Ax: " + str(ax*9.81) + " Ay: "+ str(ay*9.81) + " Az: "+ str(az*9.81))
