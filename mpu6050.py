@@ -10,9 +10,11 @@ SMPLRT_DIV   = 0x19
 CONFIG       = 0x1A
 GYRO_CONFIG  = 0x1B
 INT_ENABLE   = 0x38
+
 ACCEL_XOUT_H = 0x3B
 ACCEL_YOUT_H = 0x3D
 ACCEL_ZOUT_H = 0x3F
+
 GYRO_XOUT_H  = 0x43
 GYRO_YOUT_H  = 0x45
 GYRO_ZOUT_H  = 0x47
@@ -56,26 +58,38 @@ MPU_Init()
 print (" Reading Data of Gyroscope and Accelerometer")
 
 while True:
-	
-	#Read Accelerometer raw value
-	acc_x = read_raw_data(ACCEL_XOUT_H)
-	acc_y = read_raw_data(ACCEL_YOUT_H)
-	acc_z = read_raw_data(ACCEL_ZOUT_H)
-	
-	#Read Gyroscope raw value
-	gyro_x = read_raw_data(GYRO_XOUT_H)
-	gyro_y = read_raw_data(GYRO_YOUT_H)
-	gyro_z = read_raw_data(GYRO_ZOUT_H)
-	
-	#Full scale range +/- 250 degree/C as per sensitivity scale factor
-	Ax = acc_x/16384.0
-	Ay = acc_y/16384.0
-	Az = acc_z/16384.0
-	
-	Gx = gyro_x/131.0
-	Gy = gyro_y/131.0
-	Gz = gyro_z/131.0
-	
 
-	print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
-	sleep(0.1)
+	listAccX = []
+	
+	for i in range(0,5):
+		#Read Accelerometer raw value
+		acc_x = read_raw_data(ACCEL_XOUT_H)
+		acc_y = read_raw_data(ACCEL_YOUT_H)
+		acc_z = read_raw_data(ACCEL_ZOUT_H)
+		
+		#Read Gyroscope raw value
+		gyro_x = read_raw_data(GYRO_XOUT_H)
+		gyro_y = read_raw_data(GYRO_YOUT_H)
+		gyro_z = read_raw_data(GYRO_ZOUT_H)
+		
+		#Full scale range +/- 250 degree/C as per sensitivity scale factor
+		Ax = acc_x/16384.0
+		listAccX.append(Ax)
+
+		Ay = acc_y/16384.0
+		Az = acc_z/16384.0
+		
+		Gx = gyro_x/131.0
+		Gy = gyro_y/131.0
+		Gz = gyro_z/131.0
+		
+
+		#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
+		#sleep(0.1)
+	listAccX.sort()
+	aceleracionX = 0;
+	for i in range(1,4):
+		aceleracionX += listAccX[i]
+
+	aceleracionX = aceleracionX/4
+	print(aceleracionX)
