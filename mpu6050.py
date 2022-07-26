@@ -85,9 +85,9 @@ while True:
 		listAccY.append(Ay)
 		listAccZ.append(Az)
 		
-		Gx = float(f'{gyro_x:.2f}')
-		Gy = float(f'{gyro_y:.2f}')
-		Gz = float(f'{gyro_z:.2f}')
+		Gx = round(gyro_x, 2)
+		Gy = round(gyro_y, 2)
+		Gz = round(gyro_z, 2)
 		
 
 		#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
