@@ -55,8 +55,6 @@ Device_Address = 0x68   # MPU6050 device address
 
 MPU_Init()
 
-print (" Reading Data of Gyroscope and Accelerometer")
-
 while True:
 
 	
@@ -71,7 +69,7 @@ while True:
 	gyro_z = read_raw_data(GYRO_ZOUT_H)
 		
 	#Full scale range +/- 250 degree/C as per sensitivity scale factor
-	Ax = acc_x/16384.0
+	Ax = acc_x/16384.0 
 	Ay = acc_y/16384.0
 	Az = acc_z/16384.0
 	

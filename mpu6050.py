@@ -60,36 +60,52 @@ print (" Reading Data of Gyroscope and Accelerometer")
 while True:
 
 	listAccX = []
+	listAccY = []
+	listAccZ = []
+
+
 	
 	for i in range(0,10):
 		#Read Accelerometer raw value
-		acc_x = read_raw_data(ACCEL_XOUT_H)
-		acc_y = read_raw_data(ACCEL_YOUT_H)
-		acc_z = read_raw_data(ACCEL_ZOUT_H)
+		acc_x = read_raw_data(ACCEL_XOUT_H)/16384.0
+		acc_y = read_raw_data(ACCEL_YOUT_H)/16384.0
+		acc_z = read_raw_data(ACCEL_ZOUT_H)/16384.0
 		
 		#Read Gyroscope raw value
-		gyro_x = read_raw_data(GYRO_XOUT_H)
-		gyro_y = read_raw_data(GYRO_YOUT_H)
-		gyro_z = read_raw_data(GYRO_ZOUT_H)
+		gyro_x = read_raw_data(GYRO_XOUT_H)/131.0
+		gyro_y = read_raw_data(GYRO_YOUT_H)/131.0
+		gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
 		
 		#Full scale range +/- 250 degree/C as per sensitivity scale factor
-		Ax = acc_x/16384.0
-		listAccX.append(Ax)
+		Ax = float(f'{acc_x:.2f}')
+		Ay = float(f'{acc_y:.2f}')
+		Az = float(f'{acc_z:.2f}')
 
-		Ay = acc_y/16384.0
-		Az = acc_z/16384.0
+		listAccX.append(Ax)
+		listAccY.append(Ay)
+		listAccZ.append(Az)
 		
-		Gx = gyro_x/131.0
-		Gy = gyro_y/131.0
-		Gz = gyro_z/131.0
+		Gx = float(f'{gyro_x:.2f}')
+		Gy = float(f'{gyro_y:.2f}')
+		Gz = float(f'{gyro_z:.2f}')
 		
 
 		#print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy, "Gz=%.2f" %Gz,  "Ax=%.2f g" %Ax, "Ay=%.2f g" %Ay, "Az=%.2f g" %Az) 	
 		#sleep(0.1)
 	listAccX.sort()
-	aceleracionX = 0;
-	for i in range(1,9):
-		aceleracionX += listAccX[i]
+	listAccY.sort()
+	listAccZ.sort()
 
-	aceleracionX = aceleracionX/9
-	print(aceleracionX)
+	ax = 0
+	ay = 0
+	az = 0
+	for i in range(1,9):
+		ax += listAccX[i]
+		ay += listAccY[i]
+		az += listAccZ[i]
+	ax = ax/9
+	ay = ay/9
+	az = az/9
+
+
+	print("Ax: " + str(ax) + "Ay: "+ str(ay) + "Az: "+ str(az))
