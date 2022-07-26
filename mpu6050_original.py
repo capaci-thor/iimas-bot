@@ -71,9 +71,6 @@ while True:
 	gyro_z = read_raw_data(GYRO_ZOUT_H)
 		
 	#Full scale range +/- 250 degree/C as per sensitivity scale factor
-	Ax = acc_x/16384.0
-	listAccX.append(Ax)
-
 	Ay = acc_y/16384.0
 	Az = acc_z/16384.0
 		
