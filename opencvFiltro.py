@@ -5,7 +5,9 @@ capture = cv2.VideoCapture(0)
 while (capture.isOpened()):
 
     ret, frame = capture.read()
-    ret,th1 = cv2.threshold(frame,127,255,cv2.THRESH_BINARY)
+    gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    ret,th1 = cv2.threshold(gray_image,127,255,cv2.THRESH_BINARY)
 
 
     cv2.imshow('webCam',th1)
