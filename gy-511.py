@@ -45,7 +45,7 @@ def read_raw_data(addr):
 
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
 ACCELEROMETER_ADDR = 0x19   # ACCELEROMETER  device address
-MAG_ADDR = 0x1e   # MAG  device address
+MAG_ADDR = 0x19   # MAG  device address  0x1e
 
 MPU_Init()
 
