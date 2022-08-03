@@ -15,7 +15,7 @@ while(cv2.waitKey(1) != ord('s')):
     #a = input()
     if ret:
         out.write(frame)
-        #cv2.imshow('Video', frame)
+        cv2.imshow('Video', frame)
         
 
     if(distance > 50):
@@ -31,4 +31,5 @@ while(cv2.waitKey(1) != ord('s')):
 car.Car_Stop()
 capture.release()
 out.release()
+cv2.destroyAllWindows()
 
