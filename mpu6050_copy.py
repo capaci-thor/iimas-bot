@@ -6,6 +6,10 @@ from time import sleep
 gxr = 0.0
 gyr = 0.0
 gzr = 0.0
+cal = True
+xCal = 0.0
+yCal = 0.0
+zCal = 0.0
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B
 SMPLRT_DIV   = 0x19
@@ -102,10 +106,15 @@ while True:
 	gx = round( gx/9, 1)
 	gy = round( gy/9, 1)
 	gz = round( gz/9, 1)
+	if(cal):
+		xCal = gx
+		yCal = gz
+		zCal = gz
+		cal = False
 
-	gxr = gxr + gx
-	gyr = gyr + gy
-	gzr = gzr + gz
+	gxr = gxr + gx - xCal
+	gyr = gyr + gy - yCal
+	gzr = gzr + gz - zCal
 
 	print("Gx: " + str(gxr) + " Gy: "+ str(gyr) + " Gz: "+ str(gzr))
 	print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
