@@ -17,7 +17,7 @@ while(a == 0):
         car.Car_Run(100,100)
 
     elif( (distance < 50) and (distance > 5)):
-        vel = car.Car_Run(int(distance),int(distance))
+        vel = car.Car_Run(int(distance)+30,int(distance)+30)
     elif(distance < 5):
         car.Car_Stop()
 
