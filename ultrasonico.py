@@ -57,11 +57,3 @@ def Distance_test():
     print("distance is %f"%(distance) ) 
     return distance
 
-try:
-    while True:
-        distance = Distance_test()
-        time.sleep(1)
-except KeyboardInterrupt:
-    pass
-print("Ending")
-GPIO.cleanup()
