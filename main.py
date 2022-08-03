@@ -1,15 +1,25 @@
 import YB_Pcb_Car
 import ultrasonico as dis
 import time
+import cv2
 
 car = YB_Pcb_Car.YB_Pcb_Car()
+capture = cv2.VideoCapture(0)
+fourcc = cv2.VideoWriter_fourcc(*'avc1')
+out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
 
-a = 0
 
 while(a == 0):
-
+    ret, frame = capture.read()
     distance = dis.Distance_test()
     #a = input()
+    if ret:
+        out.write(frame)
+        #cv2.imshow('Video', frame)
+    if (cv2.waitKey(1) == ord('s')):
+        car.Car_Stop()
+        break
+
     if(a != 0):
         car.Car_Stop()
 
