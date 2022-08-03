@@ -25,10 +25,10 @@ while(cv2.waitKey(1) != ord('s')):
         vel = car.Car_Run(int(distance)+30,int(distance)+30)
     elif(distance < 5):
         car.Car_Stop()
+        break
 
 
 car.Car_Stop()
 capture.release()
 out.release()
-break
 
