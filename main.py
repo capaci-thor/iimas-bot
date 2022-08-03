@@ -20,9 +20,6 @@ while(True):
         car.Car_Stop()
         break
 
-    if(a != 0):
-        car.Car_Stop()
-
     if(distance > 50):
         car.Car_Run(100,100)
 
