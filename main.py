@@ -8,11 +8,7 @@ car = YB_Pcb_Car.YB_Pcb_Car()
 
 while(True):
 
-    try:
-        distance = dis.Distance_test()
-        time.sleep(1)
-    except KeyboardInterrupt:
-        pass
+    distance = dis.Distance_test()
 
     if(distance > 50):
         car.Car_Run(250,250)
