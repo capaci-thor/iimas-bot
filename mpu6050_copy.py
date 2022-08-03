@@ -64,48 +64,21 @@ MPU_Init()
 
 while True:
 
-	listAccX = []
-	listAccY = []
-	listAccZ = []
-
-	listGyroX = []
-	listGyroY = []
-	listGyroZ = []
-
-	
-	for i in range(0,10):
 		
-		#Read Gyroscope raw value
-		#and scale range +/- 250 degree/C as per sensitivity scale factor
-		gyro_x = read_raw_data(GYRO_XOUT_H)/131.0
-		gyro_y = read_raw_data(GYRO_YOUT_H)/131.0
-		gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
+	#Read Gyroscope raw value
+	#and scale range +/- 250 degree/C as per sensitivity scale factor
+	gyro_x = read_raw_data(GYRO_XOUT_H)/131.0
+	gyro_y = read_raw_data(GYRO_YOUT_H)/131.0
+	gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
 		
-		Gx = gyro_x
-		Gy = gyro_y
-		Gz = gyro_z
-		listGyroX.append(Gx)
-		listGyroY.append(Gy)
-		listGyroZ.append(Gz)
 
+	gx = gyro_x
+	gy = gyro_y
+	gz = gyro_z
 
-	listGyroX.sort()
-	listGyroY.sort()
-	listGyroZ.sort()
-
-	gx = 0
-	gy = 0
-	gz = 0
-
-	#Average of every variable
-	for i in range(1,9):
-		gx += listGyroX[i]
-		gy += listGyroY[i]
-		gz += listGyroZ[i]
-
-	gx = round( gx/9, 1)
-	gy = round( gy/9, 1)
-	gz = round( gz/9, 1)
+	gx = round( gx*0.1, 1)
+	gy = round( gy*0.1, 1)
+	gz = round( gz*0.1, 1)
 	if(cal):
 		xCal = gx
 		yCal = gz
@@ -119,4 +92,4 @@ while True:
 	print("Gx: " + str(gxr) + " Gy: "+ str(gyr) + " Gz: "+ str(gzr))
 	#print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
 
-	sleep(1)
+	sleep(0.1)
