@@ -117,6 +117,6 @@ while True:
 	gzr = gzr + gz - zCal
 
 	print("Gx: " + str(gxr) + " Gy: "+ str(gyr) + " Gz: "+ str(gzr))
-	print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
+	#print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
 
 	sleep(1)
