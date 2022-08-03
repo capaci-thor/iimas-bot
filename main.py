@@ -9,7 +9,7 @@ fourcc = cv2.VideoWriter_fourcc(*'avc1')
 out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
 
 
-while(a == 0):
+while(True):
     ret, frame = capture.read()
     distance = dis.Distance_test()
     #a = input()
