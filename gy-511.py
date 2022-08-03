@@ -32,7 +32,7 @@ def MPU_Init():
 def read_raw_data(addr):
 	#Accelero and Gyro value are 16-bit
         high = bus.read_byte_data(MAG_ADDR, addr)
-        low = bus.read_byte_data(MAG_ADDR, addr+1)
+        low = bus.read_byte_data(MAG_ADDR, addr-1)
     
         #concatenate higher and lower value
         value = ((high << 8) | low)
@@ -45,7 +45,7 @@ def read_raw_data(addr):
 
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
 ACCELEROMETER_ADDR = 0x19   # ACCELEROMETER  device address
-MAG_ADDR = 0x19   # MAG  device address  0x1e
+MAG_ADDR = 0x1e  # MAG  device address  0x1e
 
 MPU_Init()
 
@@ -63,9 +63,9 @@ while True:
 	
 	for i in range(0,10):
 		#Read Accelerometer raw value and convert to g units
-		acc_x = read_raw_data(0x29)
-		acc_y = read_raw_data(0x2b)
-		acc_z = read_raw_data(0x2d)
+		acc_x = read_raw_data(0x09)
+		acc_y = read_raw_data(0x0b)
+		acc_z = read_raw_data(0x0d)
 		
 		#Accelerometer conver from g to m/s2
 		Ax = acc_x
