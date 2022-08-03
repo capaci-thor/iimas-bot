@@ -3,7 +3,9 @@
 import smbus
 from time import sleep
 
-
+gxr = 0.0
+gyr = 0.0
+gzr = 0.0
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B
 SMPLRT_DIV   = 0x19
@@ -97,9 +99,13 @@ while True:
 		gy += listGyroY[i]
 		gz += listGyroZ[i]
 
-	gx = round( gx/9, 2)
-	gy = round( gy/9, 2)
-	gz = round( gz/9, 2)
+	gx = round( gx/9, 1)
+	gy = round( gy/9, 1)
+	gz = round( gz/9, 1)
 
-	print("Gx: " + str(gx) + " Gy: "+ str(gy) + " Gz: "+ str(gz))
+	gxr = gxr + gx
+	gyr = gyr + gy
+	gzr = gzr + gz
+
+	print("Gx: " + str(gxr) + " Gy: "+ str(gyr) + " Gz: "+ str(gzr))
 	sleep(1)
