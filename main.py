@@ -9,7 +9,7 @@ a = 0
 while(a == 0):
 
     distance = dis.Distance_test()
-    a = input()
+    #a = input()
     if(a != 0):
         car.Car_Stop()
 
@@ -21,7 +21,6 @@ while(a == 0):
     elif(distance < 5):
         car.Car_Stop()
 
-    car.Car_Stop()
 
 
 
