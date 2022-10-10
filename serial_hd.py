@@ -1,11 +1,11 @@
 import time
-import serial
+from serial import *
 
 
-ser = serial.Serial(
+ser = Serial(
     port='/dev/ttyS0',
     baudrate = 9600,
-    parity=0,
+    parity=PARITY_NONE,
     stopbits=1,
     bytesize=8,
     timeout=1
