@@ -12,7 +12,6 @@ ser = Serial(
 )
 
 while 1:
-    ser.write(b'A')
     x=ser.readline()
     print (x)
-    time.sleep(1)
+    #time.sleep(1)
