@@ -4,7 +4,7 @@
 import serial
 
 # Abrimos el puerto del arduino a 9600
-PuertoSerie = serial.Serial('/dev/ttyS0', 9600)
+PuertoSerie = serial.serial('/dev/ttyS0', 9600)
 # Creamos un buble sin fin
 while True:
   # leemos hasta que encontarmos el final de linea
