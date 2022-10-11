@@ -34,7 +34,6 @@ def main():
         try:
             bus.write_byte(slaveAddress,  1)
             data=bus.read_byte(slaveAddress)
-            print("recieve from slave:")
             print(data)
             time.sleep(1)
         except:
