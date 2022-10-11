@@ -13,5 +13,6 @@ ser = Serial(
 
 while 1:
     x=ser.readline()
-    print (x)
+    x = x.replace("\n","")
+    print(x)
     #time.sleep(1)
