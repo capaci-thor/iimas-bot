@@ -18,7 +18,7 @@ def ConvertStringsToBytes(src):
     converted.append(ord(b))
   return converted
 
-def main(args):
+def main():
     # Create the I2C bus
     bus = smbus.SMBus(1)
   
@@ -27,12 +27,12 @@ def main(args):
     BytesToSend = ConvertStringsToBytes("1")
     print("Sent " + str(slaveAddress) + " the " + str("1") + " command.")
     print(BytesToSend )
-    bus.write_byte_data(slaveAddress,  0x38, 1)
+    bus.write_byte(slaveAddress,  1)
     time.sleep(1)
 
     while True:
         try:
-            data=bus.read_byte_data(slaveAddress,0x00)
+            data=bus.read_byte(slaveAddress)
             print("recieve from slave:")
             print(data)
         except:
@@ -40,9 +40,4 @@ def main(args):
             time.sleep(0.5)
     return 0
 
-if __name__ == '__main__':
-     try:
-        main(sys.argv)
-     except KeyboardInterrupt:
-        print("program was stopped manually")
-     input()
+main()
