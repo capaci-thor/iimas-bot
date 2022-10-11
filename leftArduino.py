@@ -32,9 +32,11 @@ def main():
 
     while True:
         try:
+            bus.write_byte(slaveAddress,  1)
             data=bus.read_byte(slaveAddress)
             print("recieve from slave:")
             print(data)
+            time.sleep(1)
         except:
             print("remote i/o error")
             time.sleep(0.5)
