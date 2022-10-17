@@ -25,18 +25,30 @@ void setup(){
   }
 ////  Programa principal ///////////////////////////////////////////////////////////////////////
  void loop(){
-   if (millis() - timeold >= 1000){  // Se actualiza cada segundo
-      noInterrupts(); //Don't process interrupts during calculations // Desconectamos la interrupción para que no actué en esta parte del programa.
-      rpm = (60 * 1000 / pulsesperturn )/ (millis() - timeold)* pulses; // Calculamos las revoluciones por minuto
-      velocity = rpm * 3.1416 * wheel_diameter * 60 / 1000000; // Cálculo de la velocidad en [Km/h] 
-      timeold = millis(); // Almacenamos el tiempo actual.
-      //Serial.print(millis()/1000); Serial.print("       ");// Se envia al puerto serie el valor de tiempo, de las rpm y los pulsos.
-      //Serial.print(rpm,DEC); Serial.print(",");
-      Serial.println(pulses,DEC); //Serial.print(",");
+//   if (millis() - timeold >= 1000){  // Se actualiza cada segundo
+//      noInterrupts(); //Don't process interrupts during calculations // Desconectamos la interrupción para que no actué en esta parte del programa.
+//      rpm = (60 * 1000 / pulsesperturn )/ (millis() - timeold)* pulses; // Calculamos las revoluciones por minuto
+//      velocity = rpm * 3.1416 * wheel_diameter * 60 / 1000000; // Cálculo de la velocidad en [Km/h] 
+//      timeold = millis(); // Almacenamos el tiempo actual.
+//      //Serial.print(millis()/1000); Serial.print("       ");// Se envia al puerto serie el valor de tiempo, de las rpm y los pulsos.
+//      //Serial.print(rpm,DEC); Serial.print(",");
+//      Serial.println(pulses,DEC); //Serial.print(",");
+//      //Serial.println(velocity,2); 
+//      pulses = 0;  // Inicializamos los pulsos.
+//      interrupts(); // Restart the interrupt processing // Reiniciamos la interrupción
+//   }
+
+if(Serial.available() > 0)
+{
+  Serial.read();
+      Serial.println(pulses); //Serial.print(",");
       //Serial.println(velocity,2); 
       pulses = 0;  // Inicializamos los pulsos.
       interrupts(); // Restart the interrupt processing // Reiniciamos la interrupción
-   }
+      serialFlush();
+      
+}
+delay(100);
   }
 ////Fin de programa principal //////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////Función que cuenta los pulsos buenos ///////////////////////////////////////////
@@ -46,3 +58,9 @@ void setup(){
         debounce = micros(); // Almacena el tiempo para comprobar que no contamos el rebote que hay en la señal.
         pulses++;}  // Suma el pulso bueno que entra.
         else ; } 
+
+void serialFlush(){
+  while(Serial.available() > 0) {
+    char t = Serial.read();
+  }
+}

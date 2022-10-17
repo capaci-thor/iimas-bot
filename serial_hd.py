@@ -6,13 +6,14 @@ ser = Serial(
     port='/dev/ttyAMA0',
     baudrate = 9600,
     parity=PARITY_NONE,
-    stopbits=1,
-    bytesize=8,
-    timeout=1
-)
+    stopbits=STOPBITS_ONE,
+    bytesize=EIGHTBITS,
+    timeout=5
+    )
 
 while 1:
+    ser.write("0".encode())
     x=ser.readline().decode()
     #x = x.replace("\n","")
     print(x)
-    #time.sleep(1)
+    time.sleep(1)
