@@ -13,7 +13,11 @@ ser = Serial(
 
 while 1:
     ser.write("0".encode())
-    x=ser.read().decode()
-    #x = x.replace("\n","")
+    while True:
+        x=ser.read().decode()
+        if x > 0 :
+            break
+        #x = x.replace("\n","")
+        x = int(x)
     print(x)
     time.sleep(1)
