@@ -17,5 +17,5 @@ while 1:
     x = x.replace("\n","")
     x.replace("\r","")
     y = int(x)
-    print(y)
+    print(type(y))
     time.sleep(1)
