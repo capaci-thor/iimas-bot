@@ -16,5 +16,6 @@ while 1:
     x=ser.readline().decode()
     x = x.replace("\n","")
     x.replace("\r","")
-    print(x)
+    y = int(x)
+    print(y)
     time.sleep(1)
