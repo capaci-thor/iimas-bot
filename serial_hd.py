@@ -14,7 +14,7 @@ ser = Serial(
 while 1:
     ser.write("0".encode())
     while True:
-        x=ser.read().decode()
+        x=int(ser.read().decode())
         if x > 0 :
             break
         #x = x.replace("\n","")
