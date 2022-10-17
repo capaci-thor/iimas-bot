@@ -13,7 +13,7 @@ ser = Serial(
 
 while 1:
     ser.write("0".encode())
-    x=ser.readline().decode()
+    x=ser.read().decode()
     #x = x.replace("\n","")
     print(x)
     time.sleep(1)
