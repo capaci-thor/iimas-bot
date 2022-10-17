@@ -13,9 +13,8 @@ ser = Serial(
 
 while 1:
     ser.write("0".encode())
-    while ser.inWaiting() > 0:
-        x=ser.readline().decode()
-        x = x.replace("\n","")
-        x = x.replace("\r","")
+    x=ser.readline().decode()
+    x = x.replace("\n","")
+    x.replace("\r","")
     print(x)
     time.sleep(1)
