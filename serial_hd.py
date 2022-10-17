@@ -17,7 +17,6 @@ while 1:
         x=ser.read().decode()
         x = x.replace("\n","")
         x = x.replace("\r","")
-        x = int(x)
         if x > 0 :
             break
         #
