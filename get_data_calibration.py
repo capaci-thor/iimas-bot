@@ -19,6 +19,7 @@ I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 
 file = open('read.csv', 'w')
 
+
 def get_msg():
     diametro = 6.6
     global ser
@@ -61,7 +62,7 @@ def ConvertStringsToBytes(src):
         converted.append(ord(b))
     return converted   
 
-
+a = msg = get_msg()
 file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
 for i in range(0,256,5):
     print(i)
