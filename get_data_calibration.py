@@ -47,6 +47,7 @@ def get_msg():
         print("remote i/o error")
         sleep(0.5)
     vector.append(c_l)
+    print(vector)
     rpm_r = (vector[0]/20)*60
     rpm_l = (vector[1]/20)*60
     vel_r = (math.pi*diametro*rpm_r)/(100*60)
