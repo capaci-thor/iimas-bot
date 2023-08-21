@@ -63,6 +63,7 @@ def ConvertStringsToBytes(src):
 
 file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
 for i in range(0,256,5):
+    print(i)
     car.Car_Run(i , i)
     sleep(1)
     msg = get_msg()
