@@ -62,11 +62,12 @@ def ConvertStringsToBytes(src):
 
 
 file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
-for i in range(0,255):
+for i in range(0,256,5):
     car.Car_Run(i , i)
     sleep(1)
     msg = get_msg()
     to_save = str(i)+',' + msg
     file.write(to_save)
 
+car.Car_Run(0 , 0)
 file.close()
