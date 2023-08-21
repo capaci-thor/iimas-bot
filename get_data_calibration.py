@@ -2,6 +2,9 @@ from serial import *
 import smbus
 from time import sleep
 import math
+import YB_Pcb_Car
+
+car = YB_Pcb_Car.YB_Pcb_Car()   
 
 ser = Serial(
         port='/dev/ttyAMA0',
@@ -60,6 +63,8 @@ def ConvertStringsToBytes(src):
 
 file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
 for i in range(0,255):
+    car.Car_Run(i , i)
+    sleep(1)
     msg = get_msg()
     to_save = str(i)+',' + msg
     file.write(to_save)
