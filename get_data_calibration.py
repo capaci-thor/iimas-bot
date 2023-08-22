@@ -17,7 +17,8 @@ ser = Serial(
 
 I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 
-file = open('read.csv', 'w')
+path = '/home/rotjeot/iibot-ROS2/src/py_pubsub/py_pubsub/'
+file = open(path + 'read.csv', 'w')
 
 
 def get_msg():
