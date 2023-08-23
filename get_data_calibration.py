@@ -18,7 +18,7 @@ ser = Serial(
 I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 
 path = '/home/rotjeot/'
-file = open(path + 'read.csv', 'w')
+file = open(path + 'data.csv', 'w')
 
 
 def get_msg():
