@@ -3,12 +3,16 @@ from serial import *
 import smbus
 import time
 from math import *
+import pandas as pa
+from scipy import stats
 
 #constants
 #ticks of encoder
 ticks = 20
 ##wheel diameter [m]
 wheelD = 0.066 #[m]
+#length between wheels [m]
+b = 0.1 #[m]
 
 #Arduino direction for serial com 
 ser = Serial(port='/dev/ttyAMA0', baudrate = 9600, parity=PARITY_NONE,
@@ -16,6 +20,19 @@ ser = Serial(port='/dev/ttyAMA0', baudrate = 9600, parity=PARITY_NONE,
 
 #Arduino was configured for this adress
 I2C_SLAVE_ADDRESS = 0x8
+
+
+# Get data for Linear regression of motors
+path ='/home/rotjeot/'
+pd = pa.read_csv(path + "data.csv")
+pwm = pd["pwm"]
+vel_r = pd["v_r"]
+vel_l = pd["v_l"]
+slope_r, intercept_r, r_r, p_r, std_err_r = stats.linregress(vel_r, pwm)
+slope_l, intercept_l, r_l, p_l, std_err_l = stats.linregress(vel_l, pwm)
+
+#Create object for send vel to motors
+car = YB_Pcb_Car.YB_Pcb_Car()
 
 #Function get encoders data
 def encoders():
@@ -63,9 +80,12 @@ def getVelocity(elapsed_time):
     rpmRight = (60 / elapsed_time) * (countRight / ticks)
     rpmLeft = (60 / elapsed_time) * (countLeft / ticks)
 
-    
+    #Convert to m/s
+    VelRight = (rpmRight / 60) * pi * wheelD
+    velLeft = (rpmLeft / 60) * pi * wheelD
+    v = (VelRight + velLeft)/2
 
-    return v,w
+    return v,0.0
     
 
 
@@ -160,3 +180,24 @@ def robot(v,w):
 
 
 
+velInput = float(input("Ingresa la velocidad: "))
+wInput = 0.0
+
+for i in range(30):
+    r = wheelD/2
+    wr = (velInput + (b*wInput))/r
+    wl = (velInput - (b*wInput))/r
+
+    outL = int( (slope_l * wl) + intercept_l )
+    outR = int( (slope_r * wr) + intercept_r )
+    car.Control_Car(outL , outR)
+    start_time = time.time_ns()
+    wCalculada = (wr+wl) /2
+
+    # Tiempo 
+    elapsed_time = time.time_ns() - start_time #[ns]
+    elapsed_time = elapsed_time / 1000000000 # [s]
+
+    velMeas = getVelocity(elapsed_time)
+    print("Velocidad Caluclada: " + str(wCalculada)+ "/n")
+    print("Velocidad Real: " + str(velMeas[0])+ "/n")
