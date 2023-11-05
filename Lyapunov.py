@@ -195,6 +195,7 @@ for i in range(30):
     start_time = time.time_ns()
     wCalculada = (wr+wl) /2
 
+    time.sleep(100)
     # Tiempo 
     elapsed_time = time.time_ns() - start_time #[ns]
     elapsed_time = elapsed_time / 1000000000 # [s]
