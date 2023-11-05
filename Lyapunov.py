@@ -201,3 +201,5 @@ for i in range(30):
     velMeas = getVelocity(elapsed_time)
     print("Velocidad Caluclada: " + str(wCalculada))
     print("Velocidad Real: " + str(velMeas[0]))
+
+car.Control_Car(0 , 0)
