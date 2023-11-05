@@ -199,5 +199,5 @@ for i in range(30):
     elapsed_time = elapsed_time / 1000000000 # [s]
 
     velMeas = getVelocity(elapsed_time)
-    print("Velocidad Caluclada: " + str(wCalculada)+ "/n")
-    print("Velocidad Real: " + str(velMeas[0])+ "/n")
+    print("Velocidad Caluclada: " + str(wCalculada))
+    print("Velocidad Real: " + str(velMeas[0]))
