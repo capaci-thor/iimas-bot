@@ -185,8 +185,8 @@ wInput = 0.0
 
 for i in range(30):
     r = wheelD/2
-    wr = (velInput + (b*wInput))/r
-    wl = (velInput - (b*wInput))/r
+    wr = velInput #(velInput + (b*wInput))/r
+    wl = velInput #(velInput - (b*wInput))/r
 
     outL = int( (slope_l * wl) + intercept_l )
     outR = int( (slope_r * wr) + intercept_r )
