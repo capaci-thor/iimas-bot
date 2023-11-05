@@ -79,7 +79,8 @@ def getVelocity(elapsed_time):
     #Convert to rpm
     rpmRight = (60 / elapsed_time) * (countRight / ticks)
     rpmLeft = (60 / elapsed_time) * (countLeft / ticks)
-
+    print("rpm R" + str(rpmRight))
+    print("rpm L" + str(rpmLeft))
     #Convert to m/s
     VelRight = (rpmRight / 60) * pi * wheelD
     velLeft = (rpmLeft / 60) * pi * wheelD
