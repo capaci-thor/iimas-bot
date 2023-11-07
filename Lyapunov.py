@@ -167,7 +167,7 @@ def lyapunov():
         # Modelo cinemático
 
         xtmp = vMeas[i] * cos(phiPos[i+1])
-        ytmp = wMeas[k] * sin(phiPos[i+1])
+        ytmp = wMeas[i] * sin(phiPos[i+1])
 
         # integral 
         xPos.append = xPos[i] + elapsed_time * xtmp
@@ -204,7 +204,7 @@ for i in range(7):
     elapsed_time = time.time_ns() - start_time #[ns]
     elapsed_time = elapsed_time / 1000000000 # [s]
 
-    velMeas = getVelocity(elapsed_time, outL/outL, outR/outR)
+    velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
     print("Velocidad Lineal Calculada: " + str(vCalculada))
     print("Velocidad Angular Calculada: " + str(wCalculada))
     print("Velocidad Lineal Real: " + str(velMeas[0]))# +"/" + str(outL) + "," + str(outR))
