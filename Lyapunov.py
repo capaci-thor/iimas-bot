@@ -85,8 +85,9 @@ def getVelocity(elapsed_time):
     VelRight = (rpmRight / 60) * pi * wheelD
     velLeft = (rpmLeft / 60) * pi * wheelD
     v = (VelRight + velLeft)/2
+    w = (VelRight - velLeft)/b
 
-    return v,0.0
+    return v,w
     
 
 
@@ -204,7 +205,7 @@ for i in range(30):
     velMeas = getVelocity(elapsed_time)
     print("Velocidad Lineal Calculada: " + str(vCalculada))
     print("Velocidad Angular Calculada: " + str(wCalculada))
-    print("Velocidad Real: " + str(velMeas[0]) +"/" + str(outL) + "," + str(outR))
+    print("Velocidad Real: " + str(velMeas[1]) +"/" + str(outL) + "," + str(outR))
     print(elapsed_time)
 
 car.Control_Car(0 , 0)
