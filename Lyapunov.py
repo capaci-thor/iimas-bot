@@ -185,10 +185,10 @@ def robot(v,w):
 velInput = float(input("Ingresa la velocidad lineal: "))
 wInput = float(input("Ingresa la velocidad angular: "))
 
-for i in range(30):
+for i in range(7):
     r = wheelD/2
     wr = velInput + (b*wInput)/2 #(velInput + (b*wInput))/r
-    wl = velInput - (b*wInput)/2#(velInput - (b*wInput))/r
+    wl = velInput - (b*wInput)/2 #(velInput - (b*wInput))/r
 
     outL = int( (slope_l * wl) + intercept_l )
     outR = int( (slope_r * wr) + intercept_r )
@@ -205,7 +205,7 @@ for i in range(30):
     velMeas = getVelocity(elapsed_time)
     print("Velocidad Lineal Calculada: " + str(vCalculada))
     print("Velocidad Angular Calculada: " + str(wCalculada))
-    print("Velocidad Real: " + str(velMeas[1]) +"/" + str(outL) + "," + str(outR))
+    print("Velocidad Real: " + str(velMeas[1]))# +"/" + str(outL) + "," + str(outR))
     print(elapsed_time)
 
 car.Control_Car(0 , 0)
