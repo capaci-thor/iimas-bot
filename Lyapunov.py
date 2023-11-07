@@ -12,7 +12,7 @@ ticks = 20
 ##wheel diameter [m]
 wheelD = 0.066 #[m]
 #length between wheels [m]
-b = 0.1 #[m]
+b = 0.14 #[m]
 
 #Arduino direction for serial com 
 ser = Serial(port='/dev/ttyAMA0', baudrate = 9600, parity=PARITY_NONE,
@@ -187,8 +187,9 @@ wInput = float(input("Ingresa la velocidad angular: "))
 
 for i in range(7):
     r = wheelD/2
-    wr = velInput + (b*wInput)/2 #(velInput + (b*wInput))/r
-    wl = velInput - (b*wInput)/2 #(velInput - (b*wInput))/r
+    wr = velInput + ((b*wInput)/2) #(velInput + (b*wInput))/r
+    wl = velInput - ((b*wInput)/2) #(velInput - (b*wInput))/r
+    print("wr: "+ str(wr) + "wl: " + str(wl))
 
     outL = int( (slope_l * wl) + intercept_l )
     outR = int( (slope_r * wr) + intercept_r )
