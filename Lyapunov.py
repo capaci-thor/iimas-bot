@@ -69,7 +69,7 @@ def ConvertStringsToBytes(src):
         converted.append(ord(b))
     return converted 
 
-def getVelocity(elapsed_time):
+def getVelocity(elapsed_time, singL, singR):
     #Get data of encoders
 
     countEncoders = encoders()
@@ -84,8 +84,8 @@ def getVelocity(elapsed_time):
     #Convert to m/s
     VelRight = (rpmRight / 60) * pi * wheelD
     velLeft = (rpmLeft / 60) * pi * wheelD
-    v = (VelRight + velLeft)/2
-    w = (VelRight - velLeft)/b
+    v = (singR*VelRight + singL*velLeft)/2
+    w = (singR*VelRight - singL*velLeft)/b
 
     return v,w
     
@@ -189,6 +189,7 @@ for i in range(7):
     r = wheelD/2
     wr = velInput + ((b*wInput)/2) #(velInput + (b*wInput))/r
     wl = velInput - ((b*wInput)/2) #(velInput - (b*wInput))/r
+    
     print("wr: "+ str(wr) + "wl: " + str(wl))
 
     outL = int( (slope_l * wl) + intercept_l )
@@ -203,7 +204,7 @@ for i in range(7):
     elapsed_time = time.time_ns() - start_time #[ns]
     elapsed_time = elapsed_time / 1000000000 # [s]
 
-    velMeas = getVelocity(elapsed_time)
+    velMeas = getVelocity(elapsed_time, outL/outL, outR/outR)
     print("Velocidad Lineal Calculada: " + str(vCalculada))
     print("Velocidad Angular Calculada: " + str(wCalculada))
     print("Velocidad Lineal Real: " + str(velMeas[0]))# +"/" + str(outL) + "," + str(outR))
