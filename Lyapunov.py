@@ -199,7 +199,7 @@ for i in range(7):
     vCalculada = (wr+wl) /2
     wCalculada = (wr-wl) /b
 
-    time.sleep(0.15)
+    time.sleep(0.2)
     # Tiempo 
     elapsed_time = time.time_ns() - start_time #[ns]
     elapsed_time = elapsed_time / 1000000000 # [s]
