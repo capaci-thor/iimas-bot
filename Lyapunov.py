@@ -138,7 +138,7 @@ def lyapunov():
 
         rho.append( atan2(yGoal - yPos[i], xGoal - xPos[i]) - phiPos[i])
 
-        theta.append( atan2(yGoal - yPos[i], xGoal - xPos[i]) - phiGoal[i])
+        theta.append( atan2(yGoal - yPos[i], xGoal - xPos[i]) - phiGoal)
 
         #control parameters
         k1 = 0.2
