@@ -194,33 +194,33 @@ def lyapunov():
 
 
 
-velInput = float(input("Ingresa la velocidad lineal: "))
-wInput = float(input("Ingresa la velocidad angular: "))
+# velInput = float(input("Ingresa la velocidad lineal: "))
+# wInput = float(input("Ingresa la velocidad angular: "))
 
-for i in range(7):
-    #r = wheelD/2
-    wr = velInput + ((b*wInput)/2) #(velInput + (b*wInput))/r
-    wl = velInput - ((b*wInput)/2) #(velInput - (b*wInput))/r
+# for i in range(7):
+#     #r = wheelD/2
+#     wr = velInput + ((b*wInput)/2) #(velInput + (b*wInput))/r
+#     wl = velInput - ((b*wInput)/2) #(velInput - (b*wInput))/r
     
-    #print("wr: "+ str(wr) + "wl: " + str(wl))
+#     #print("wr: "+ str(wr) + "wl: " + str(wl))
 
-    outL = int( (slope_l * wl) + intercept_l )
-    outR = int( (slope_r * wr) + intercept_r )
-    car.Control_Car(outL , outR)
-    start_time = time.time_ns()
-    vCalculada = (wr+wl) /2
-    wCalculada = (wr-wl) /b
+#     outL = int( (slope_l * wl) + intercept_l )
+#     outR = int( (slope_r * wr) + intercept_r )
+#     car.Control_Car(outL , outR)
+#     start_time = time.time_ns()
+#     vCalculada = (wr+wl) /2
+#     wCalculada = (wr-wl) /b
 
-    time.sleep(0.2)
-    # Tiempo 
-    elapsed_time = time.time_ns() - start_time #[ns]
-    elapsed_time = elapsed_time / 1000000000 # [s]
+#     time.sleep(0.2)
+#     # Tiempo 
+#     elapsed_time = time.time_ns() - start_time #[ns]
+#     elapsed_time = elapsed_time / 1000000000 # [s]
 
-    velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
-    #print("Velocidad Lineal Calculada: " + str(vCalculada))
-    print("Velocidad Angular Calculada: " + str(wCalculada))
-    #print("Velocidad Lineal Real: " + str(velMeas[0]))# +"/" + str(outL) + "," + str(outR))
-    print("Velocidad Angular Real: " + str(velMeas[1]))
-    #print(elapsed_time)
-
+#     velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
+#     #print("Velocidad Lineal Calculada: " + str(vCalculada))
+#     print("Velocidad Angular Calculada: " + str(wCalculada))
+#     #print("Velocidad Lineal Real: " + str(velMeas[0]))# +"/" + str(outL) + "," + str(outR))
+#     print("Velocidad Angular Real: " + str(velMeas[1]))
+#     #print(elapsed_time)
+lyapunov()
 car.Control_Car(0 , 0)
