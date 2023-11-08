@@ -150,16 +150,32 @@ def lyapunov():
 
         wCal.append( k2 * rho[i] + (k1/rho[i]) * cos(rho[i]) * sin(rho[i]) * (rho[i] + theta[i]) )
 
+        # Output for every motor
+        wr = vCal[i] + ((b*wCal[i])/2) #(velInput + (b*wInput))/r
+        wl = vCal[i] - ((b*wCal[i])/2)
+
+        outL = int( (slope_l * wl) + intercept_l )
+        outR = int( (slope_r * wr) + intercept_r )
+
         # Send vel to robot
-        robot(vCal, wCal)
+        car.Control_Car(outL , outR)
+        time.sleep(0.2)
         
         # Tiempo 
         elapsed_time = time.time_ns() - start_time #[ns]
         elapsed_time = elapsed_time / 1000000000 # [s]
 
-        velMeas = getVelocity(elapsed_time)
+        #Get real velocity
+        velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
         vMeas.append(velMeas[0])
         wMeas.append(velMeas[1])
+
+        print(i)
+        print("Velocidad Lineal Calculada: " + str(vCal[i]))
+        print("Velocidad angular Calculada: " + str(wCal[i]))
+
+        print("Velocidad Lineal Real: " + str(velMeas[0]))
+        print("Velocidad angular Real: " + str(velMeas[1]))
 
         # integral
         phiPos.append(phiPos[i] + elapsed_time * wMeas[i])
@@ -177,16 +193,12 @@ def lyapunov():
 
 
 
-def robot(v,w):
-    print(v,w)
-
-
 
 velInput = float(input("Ingresa la velocidad lineal: "))
 wInput = float(input("Ingresa la velocidad angular: "))
 
 for i in range(7):
-    r = wheelD/2
+    #r = wheelD/2
     wr = velInput + ((b*wInput)/2) #(velInput + (b*wInput))/r
     wl = velInput - ((b*wInput)/2) #(velInput - (b*wInput))/r
     
