@@ -186,8 +186,8 @@ def lyapunov():
         ytmp = wMeas[i] * sin(phiPos[i+1])
 
         # integral 
-        xPos.append = xPos[i] + elapsed_time * xtmp
-        yPos.append = xPos[i] + elapsed_time * ytmp
+        xPos.append( xPos[i] + elapsed_time * xtmp)
+        yPos.append( xPos[i] + elapsed_time * ytmp)
         i = i + 1
 
 
