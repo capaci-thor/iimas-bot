@@ -193,6 +193,8 @@ def lyapunov():
         print("Velocidad Lineal Real: " + str(velMeas[0]))
         print("Velocidad angular Real: " + str(velMeas[1]))
 
+        print("Error: " + str(l[i]))
+
         # integral
         phiPos.append(phiPos[i] + elapsed_time * wMeas[i])
 
