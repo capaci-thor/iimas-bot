@@ -202,7 +202,9 @@ def lyapunov():
         print("Velocidad Lineal Real: " + str(velMeas[0]))
         print("Velocidad angular Real: " + str(velMeas[1]))
 
-        print("Error: " + str(l[i]))
+        print("Error l : " + str(l[i]))
+        print("Error rho : " + str(rho[i]))
+        print("Error theta : " + str(theta[i]))
 
         # integral
         phiPos.append(phiPos[i] + elapsed_time * wMeas[i])
@@ -215,6 +217,10 @@ def lyapunov():
         # integral 
         xPos.append( xPos[i] + elapsed_time * xtmp)
         yPos.append( xPos[i] + elapsed_time * ytmp)
+        if(l[i] <= 0.1 and rho[i] <= 0.1):
+            car.Control_Car(0 , 0)
+            exit()
+    
         i = i + 1
 
 
@@ -249,5 +255,7 @@ def lyapunov():
 #     #print("Velocidad Lineal Real: " + str(velMeas[0]))# +"/" + str(outL) + "," + str(outR))
 #     print("Velocidad Angular Real: " + str(velMeas[1]))
 #     #print(elapsed_time)
-lyapunov()
-car.Control_Car(0 , 0)
+try:
+    lyapunov()
+except KeyboardInterrupt:
+    car.Control_Car(0 , 0)
