@@ -96,6 +96,10 @@ def getVelocity(elapsed_time, singL, singR):
 
 
 def lyapunov():
+    #global variables
+    global auxWr
+    global auxWl
+
     ## coordinates
     #initial coordinates[m]
     xIni = 0.0 #[m]
