@@ -34,6 +34,10 @@ slope_l, intercept_l, r_l, p_l, std_err_l = stats.linregress(vel_l, pwm)
 #Create object for send vel to motors
 car = YB_Pcb_Car.YB_Pcb_Car()
 
+##Auxiliar variables for modify vel
+auxWr = 0.0
+auxWl = 0.0
+
 #Function get encoders data
 def encoders():
     vector = []
@@ -151,8 +155,8 @@ def lyapunov():
         wCal.append( k2 * rho[i] + (k1/rho[i]) * cos(rho[i]) * sin(rho[i]) * (rho[i] + theta[i]) )
 
         # Output for every motor
-        wr = vCal[i] + ((b*wCal[i])/2) #(velInput + (b*wInput))/r
-        wl = vCal[i] - ((b*wCal[i])/2)
+        wr = vCal[i] + ((b*wCal[i])/2) + auxWr
+        wl = vCal[i] - ((b*wCal[i])/2) + auxWl
 
         outL = int( (slope_l * wl) + intercept_l )
         outR = int( (slope_r * wr) + intercept_r )
@@ -169,6 +173,14 @@ def lyapunov():
         velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
         vMeas.append(velMeas[0])
         wMeas.append(velMeas[1])
+
+        #Fix vel 
+        if (velMeas[0] == 0 and velMeas[1] == 0 and vCal[i] != 0 and wCal[i] != 0):
+            auxWr = wr + auxWr
+            auxWl = wl + auxWl
+        else:
+            auxWr = 0
+            auxWl = 0
 
         print(i)
         print("Velocidad Lineal Calculada: " + str(vCal[i]))
