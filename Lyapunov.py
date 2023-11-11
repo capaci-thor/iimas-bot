@@ -173,8 +173,17 @@ def lyapunov():
         elapsed_time = time.time_ns() - start_time #[ns]
         elapsed_time = elapsed_time / 1000000000 # [s]
 
+        try:
+            auxOutL = outL/abs(outL)
+        except:
+            auxOutL = 0
+
+        try:
+            auxOutR = outR/abs(outR)
+        except:
+            auxOutR = 0
         #Get real velocity
-        velMeas = getVelocity(elapsed_time, outL/abs(outL), outR/abs(outR))
+        velMeas = getVelocity(elapsed_time, auxOutL, auxOutR)
         vMeas.append(velMeas[0])
         wMeas.append(velMeas[1])
 
