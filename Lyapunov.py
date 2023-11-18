@@ -217,6 +217,11 @@ def lyapunov():
         # integral 
         xPos.append( xPos[i] + elapsed_time * xtmp)
         yPos.append( xPos[i] + elapsed_time * ytmp)
+
+        print("posicion x: " + str(xPos[i+1]))
+        print("posicion y: " + str(yPos[i+1]))
+
+    
         if(l[i] <= 0.1 and rho[i] <= 0.1):
             car.Control_Car(0 , 0)
             exit()
