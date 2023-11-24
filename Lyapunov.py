@@ -207,16 +207,16 @@ def lyapunov():
         print("Error theta : " + str(theta[i]))
 
         # integral
-        phiPos.append(phiPos[i] + elapsed_time * wMeas[i])
+        phiPos.append( phiPos[i] + (elapsed_time * wMeas[i]) )
 
         # Modelo cinemático
 
         xtmp = vMeas[i] * cos(phiPos[i+1])
-        ytmp = wMeas[i] * sin(phiPos[i+1])
+        ytmp = vMeas[i] * sin(phiPos[i+1])
 
         # integral 
-        xPos.append( xPos[i] + elapsed_time * xtmp)
-        yPos.append( xPos[i] + elapsed_time * ytmp)
+        xPos.append( xPos[i] + (elapsed_time * xtmp) )
+        yPos.append( yPos[i] + (elapsed_time * ytmp) )
 
         print("posicion x: " + str(xPos[i+1]))
         print("posicion y: " + str(yPos[i+1]))
