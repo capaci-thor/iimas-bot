@@ -218,6 +218,7 @@ def lyapunov():
         xPos.append( xPos[i] + (elapsed_time * xtmp) )
         yPos.append( yPos[i] + (elapsed_time * ytmp) )
 
+        print("phi      x: " + str(phiPos[i+1]))
         print("posicion x: " + str(xPos[i+1]))
         print("posicion y: " + str(yPos[i+1]))
 
