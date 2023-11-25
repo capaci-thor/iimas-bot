@@ -167,7 +167,7 @@ def lyapunov():
 
         # Send vel to robot
         car.Control_Car(outL , outR)
-        time.sleep(0.4)
+        time.sleep(0.2)
         
         # Tiempo 
         elapsed_time = time.time_ns() - start_time #[ns]
