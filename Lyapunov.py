@@ -83,13 +83,16 @@ def getVelocity(elapsed_time, singL, singR):
     #Convert to rpm
     rpmRight = (60 / elapsed_time) * (countRight / ticks)
     rpmLeft = (60 / elapsed_time) * (countLeft / ticks)
-    #print("rpm R: " + str(rpmRight))
-    #print("rpm L: " + str(rpmLeft))
+
     #Convert to m/s
-    VelRight = (rpmRight / 60) * pi * wheelD
-    velLeft = (rpmLeft / 60) * pi * wheelD
-    v = (singR*VelRight + singL*velLeft)/2
-    w = (singR*VelRight - singL*velLeft)/b
+    VelRight = (rpmRight / 60) * pi * wheelD * singR
+    velLeft = (rpmLeft / 60) * pi * wheelD * singL
+    
+    #see velocitys
+    print("Velocidad der : " + str(VelRight))
+    print("Velocidad izq : " + str(velLeft))
+    v = (VelRight + velLeft)/2
+    w = (VelRight - velLeft)/b
 
     return v,w
     
