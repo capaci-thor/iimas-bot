@@ -148,6 +148,7 @@ def lyapunov():
     while True:
         start_time = time.time_ns()
 
+        print(i)
         #Errors
         l.append( sqrt((xGoal - xPos[i])**2 + (yGoal - yPos[i])**2) )
 
@@ -198,7 +199,7 @@ def lyapunov():
             auxWr = 0
             auxWl = 0
 
-        print(i)
+        
         print("Velocidad Lineal Calculada : " + str(vCal[i]))
         print("Velocidad angular Calculada: " + str(wCal[i]*(180/pi)))
 
@@ -235,6 +236,9 @@ def lyapunov():
             exit()
     
         i = i + 1
+        if(i == 1):
+            car.Control_Car(0 , 0)
+            exit()
 
 
 
