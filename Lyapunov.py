@@ -196,15 +196,15 @@ def lyapunov():
             auxWl = 0
 
         print(i)
-        print("Velocidad Lineal Calculada: " + str(vCal[i]))
-        print("Velocidad angular Calculada: " + str(wCal[i]))
+        print("Velocidad Lineal Calculada : " + str(vCal[i]))
+        print("Velocidad angular Calculada: " + str(wCal[i]*(180/pi)))
 
-        print("Velocidad Lineal Real: " + str(velMeas[0]))
-        print("Velocidad angular Real: " + str(velMeas[1]))
+        print("Velocidad Lineal Real : " + str(velMeas[0]))
+        print("Velocidad angular Real: " + str(velMeas[1]*(180/pi)))
 
-        print("Error l : " + str(l[i]))
-        print("Error rho : " + str(rho[i]))
-        print("Error theta : " + str(theta[i]))
+        print("Error l     : " + str(l[i]))
+        print("Error rho   : " + str(rho[i]*(180/pi)))
+        print("Error theta : " + str(theta[i]*(180/pi)))
 
         # integral
         phiPos.append( phiPos[i] + (elapsed_time * wMeas[i]) )
@@ -218,7 +218,7 @@ def lyapunov():
         xPos.append( xPos[i] + (elapsed_time * xtmp) )
         yPos.append( yPos[i] + (elapsed_time * ytmp) )
 
-        print("phi      x: " + str(phiPos[i+1]))
+        print("phi       : " + str(phiPos[i+1]*(180/pi)))
         print("posicion x: " + str(xPos[i+1]))
         print("posicion y: " + str(yPos[i+1]))
 
