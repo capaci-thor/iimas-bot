@@ -209,6 +209,10 @@ def lyapunov():
         print("Error rho   : " + str(rho[i]*(180/pi)))
         print("Error theta : " + str(theta[i]*(180/pi)))
 
+        # Tiempo 
+        elapsed_time = time.time_ns() - start_time #[ns]
+        elapsed_time = elapsed_time / 1000000000 # [s]
+        
         # integral
         phiPos.append( phiPos[i] + (elapsed_time * wMeas[i]) )
 
