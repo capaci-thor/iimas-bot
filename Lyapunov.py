@@ -73,12 +73,16 @@ def ConvertStringsToBytes(src):
         converted.append(ord(b))
     return converted 
 
-def getVelocity(elapsed_time, singL, singR):
+def getVelocity(start_time, singL, singR):
     #Get data of encoders
 
     countEncoders = encoders()
     countRight = countEncoders[0]
     countLeft = countEncoders[1]
+
+    # Tiempo 
+    elapsed_time = time.time_ns() - start_time #[ns]
+    elapsed_time = elapsed_time / 1000000000 # [s]
 
     #Convert to rpm
     rpmRight = (60 / elapsed_time) * (countRight / ticks)
@@ -171,10 +175,6 @@ def lyapunov():
         # Send vel to robot
         car.Control_Car(outL , outR)
         time.sleep(0.2)
-        
-        # Tiempo 
-        elapsed_time = time.time_ns() - start_time #[ns]
-        elapsed_time = elapsed_time / 1000000000 # [s]
 
         try:
             auxOutL = outL/abs(outL)
@@ -186,7 +186,7 @@ def lyapunov():
         except:
             auxOutR = 0
         #Get real velocity
-        velMeas = getVelocity(elapsed_time, auxOutL, auxOutR)
+        velMeas = getVelocity(start_time, auxOutL, auxOutR)
         vMeas.append(velMeas[0])
         wMeas.append(velMeas[1])
 
