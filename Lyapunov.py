@@ -98,7 +98,7 @@ def getVelocity(start_time, singL, singR):
     v = (VelRight + velLeft)/2
     w = (VelRight - velLeft)/b
 
-    return v,w
+    return v,w,elapsed_time
     
 
 
@@ -190,6 +190,7 @@ def lyapunov():
         velMeas = getVelocity(start_time, auxOutL, auxOutR)
         vMeas.append(velMeas[0])
         wMeas.append(velMeas[1])
+        elapsed_time = velMeas[2]
 
         #Fix vel 
         if (velMeas[0] == 0 and velMeas[1] == 0 and vCal[i] != 0 and wCal[i] != 0):
@@ -208,11 +209,7 @@ def lyapunov():
 
         print("Error l     : " + str(l[i]))
         print("Error rho   : " + str(rho[i]*(180/pi)))
-        print("Error theta : " + str(theta[i]*(180/pi)))
-
-        # Tiempo 
-        elapsed_time = time.time_ns() - start_time #[ns]
-        elapsed_time = elapsed_time / 1000000000 # [s]
+        print("Error theta : " + str(theta[i]*(180/pi))) 
         
         # integral
         phiPos.append( phiPos[i] + (elapsed_time * wMeas[i]) )
