@@ -216,16 +216,19 @@ def lyapunov():
 
         # Modelo cinemático
 
-        xtmp = vMeas[i] * cos(phiPos[i+1])
-        ytmp = vMeas[i] * sin(phiPos[i+1])
+        xtmp = elapsed_time * vMeas[i] * cos(phiPos[i+1])
+        ytmp = elapsed_time * vMeas[i] * sin(phiPos[i+1])
+
+        print("posicion x: " + str(xtmp))
+        print("posicion y: " + str(ytmp))
 
         # integral 
-        xPos.append( xPos[i] + (elapsed_time * xtmp) )
-        yPos.append( yPos[i] + (elapsed_time * ytmp) )
+        xPos.append( xPos[i] + (xtmp) )
+        yPos.append( yPos[i] + (ytmp) )
 
         print("phi       : " + str(phiPos[i+1]*(180/pi)))
-        print("posicion x: " + str(xPos[i+1]))
-        print("posicion y: " + str(yPos[i+1]))
+        print("posicion acumulada x: " + str(xPos[i+1]))
+        print("posicion acumulada y: " + str(yPos[i+1]))
 
     
         if(l[i] <= 0.1 and rho[i] <= 0.1):
