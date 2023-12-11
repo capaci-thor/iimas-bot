@@ -175,7 +175,7 @@ def lyapunov():
 
         # Send vel to robot
         car.Control_Car(outL , outR)
-        time.sleep(0.2)
+        time.sleep(0.5)
 
         try:
             auxOutL = outL/abs(outL)
