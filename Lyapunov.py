@@ -236,9 +236,9 @@ def lyapunov():
             exit()
     
         i = i + 1
-        if(i == 4):
-            car.Control_Car(0 , 0)
-            exit()
+        #if(i == 4):
+        #    car.Control_Car(0 , 0)
+        #    exit()
 
 
 
