@@ -5,6 +5,7 @@ import time
 from math import *
 import pandas as pa
 from scipy import stats
+from datetime import datetime
 
 #constants
 #ticks of encoder
@@ -20,12 +21,15 @@ ser = Serial(port='/dev/ttyAMA0', baudrate = 9600, parity=PARITY_NONE,
 
 #Arduino was configured for this adress
 I2C_SLAVE_ADDRESS = 0x8
-# Save data in csv file 
+
+# Save data in csv file
+timestamp = time.time()
 date_time = datetime.fromtimestamp(timestamp)
 str_date_time = date_time.strftime("%d-%m-%Y_%H-%M-%S")
 pathDatos = '/home/rotjeot/datos/'
 file = open(pathDatos + 'datos_' + str_date_time+'.csv', 'x')
 file.write('i,vel_rigth,vel_left,v,w,vr,wr,l,rho, tetha, x,y,phi, xR, YR\n')
+
 # Get data for Linear regression of motors
 path ='/home/rotjeot/'
 pd = pa.read_csv(path + "data.csv")
