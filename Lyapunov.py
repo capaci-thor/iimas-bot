@@ -241,13 +241,13 @@ def lyapunov():
         print("posicion acumulada x: " + str(xPos[i+1]))
         print("posicion acumulada y: " + str(yPos[i+1]))
 
-        file.write('i,vel_rigth,vel_left,v,w,vr,wr,l,rho, tetha, x,y,phi, xR, YR\n')
         file.write(str(vCal[i])+',' + str(wCal[i]) + ',' + str(velMeas[0]) + ',' + str(velMeas[1]) + ',' +
                     str(l[i]) + ',' + str(rho[i]) + ',' + str(theta[i]) + ',' + str(xtmp) + ',' + str(ytmp) +
-                    ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(xPos[i+1]) + ',\n')
+                    ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(xPos[i+1]) + '\n')
     
         if(l[i] <= 0.1 and rho[i] <= 0.1):
             car.Control_Car(0 , 0)
+            file.close()
             exit()
     
         i = i + 1
