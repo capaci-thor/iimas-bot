@@ -243,7 +243,7 @@ def lyapunov():
 
         file.write(str(vCal[i])+',' + str(wCal[i]) + ',' + str(velMeas[0]) + ',' + str(velMeas[1]) + ',' +
                     str(l[i]) + ',' + str(rho[i]) + ',' + str(theta[i]) + ',' + str(xtmp) + ',' + str(ytmp) +
-                    ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(xPos[i+1]) + '\n')
+                    ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(yPos[i+1]) + '\n')
     
         if(l[i] <= 0.1 and rho[i] <= 0.1):
             car.Control_Car(0 , 0)
