@@ -20,8 +20,12 @@ ser = Serial(port='/dev/ttyAMA0', baudrate = 9600, parity=PARITY_NONE,
 
 #Arduino was configured for this adress
 I2C_SLAVE_ADDRESS = 0x8
-
-
+# Save data in csv file 
+date_time = datetime.fromtimestamp(timestamp)
+str_date_time = date_time.strftime("%d-%m-%Y_%H-%M-%S")
+pathDatos = '/home/rotjeot/datos/'
+file = open(pathDatos + 'datos_' + str_date_time+'.csv', 'x')
+file.write('i,vel_rigth,vel_left,v,w,vr,wr,l,rho, tetha, x,y,phi, xR, YR\n')
 # Get data for Linear regression of motors
 path ='/home/rotjeot/'
 pd = pa.read_csv(path + "data.csv")
@@ -98,6 +102,9 @@ def getVelocity(start_time, singL, singR):
     v = (VelRight + velLeft)/2
     w = (VelRight - velLeft)/b
 
+    #write Vel for document
+    file.write(str(VelRight)+ ',' + str(velLeft))
+    #return 
     return v,w,elapsed_time
     
 
@@ -147,7 +154,7 @@ def lyapunov():
     i = 0
     while True:
         start_time = time.time_ns()
-
+        file.write(str(i)+',')
         print(i)
         #Errors
         l.append( sqrt((xGoal - xPos[i])**2 + (yGoal - yPos[i])**2) )
@@ -230,6 +237,10 @@ def lyapunov():
         print("posicion acumulada x: " + str(xPos[i+1]))
         print("posicion acumulada y: " + str(yPos[i+1]))
 
+        file.write('i,vel_rigth,vel_left,v,w,vr,wr,l,rho, tetha, x,y,phi, xR, YR\n')
+        file.write(str(vCal[i])+',' + str(wCal[i]) + ',' + str(velMeas[0]) + ',' + str(velMeas[1]) + ',' +
+                    str(l[i]) + ',' + str(rho[i]) + ',' + str(theta[i]) + ',' + str(xtmp) + ',' + str(ytmp) +
+                    ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(xPos[i+1]) + ',\n')
     
         if(l[i] <= 0.1 and rho[i] <= 0.1):
             car.Control_Car(0 , 0)
