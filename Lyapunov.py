@@ -107,7 +107,7 @@ def getVelocity(start_time, singL, singR):
     w = (VelRight - velLeft)/b
 
     #write Vel for document
-    file.write(str(VelRight)+ ',' + str(velLeft))
+    file.write(str(VelRight)+ ',' + str(velLeft)+ ',')
     #return 
     return v,w,elapsed_time
     
