@@ -126,7 +126,7 @@ def lyapunov():
 
     #goal coordinates [m]
     xGoal = 1.0 #[m]
-    yGoal = 0.5 #[m]
+    yGoal = 0.0 #[m]
     phiGoal = 0.0 * (pi/180) #[rad]
 
     ### List
