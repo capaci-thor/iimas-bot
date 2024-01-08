@@ -207,8 +207,8 @@ def lyapunov():
 
         #Fix vel 
         if (velMeas[0] == 0 and velMeas[1] == 0 and vCal[i] != 0 and wCal[i] != 0):
-            auxWr = wr + auxWr
-            auxWl = wl + auxWl
+            auxWr = wr + auxWr + 2
+            auxWl = wl + auxWl + 2
         else:
             auxWr = 0
             auxWl = 0
