@@ -174,8 +174,10 @@ def lyapunov():
         # Control
 
         vCal.append( k1 * cos(rho[i]) * l[i] )
-
-        wCal.append( k2 * rho[i] + (k1/rho[i]) * cos(rho[i]) * sin(rho[i]) * (rho[i] + theta[i]) )
+        try:
+            wCal.append( k2 * rho[i] + (k1/rho[i]) * cos(rho[i]) * sin(rho[i]) * (rho[i] + theta[i]) )
+        except:
+            wCal.append(0)
 
         # Output for every motor
         wr = vCal[i] + ((b*wCal[i])/2) + auxWr
