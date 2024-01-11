@@ -125,7 +125,7 @@ def lyapunov():
     phiIni = 0.0 * (pi/180) #[rad]
 
     #goal coordinates [m]
-    xGoal = 0.0 #[m]
+    xGoal = 0.5 #[m]
     yGoal = 0.0 #[m]
     phiGoal = 90.0 * (pi/180) #[rad]
 
