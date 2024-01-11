@@ -248,7 +248,7 @@ def lyapunov():
                     str(l[i]) + ',' + str(rho[i]) + ',' + str(theta[i]) + ',' + str(xtmp) + ',' + str(ytmp) +
                     ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(yPos[i+1]) + '\n')
     
-        if(l[i] <= 0.1 and rho[i] <= 0.1 and theta[i] <= 0.1):
+        if(l[i] <= 0.1 and rho[i] <= 0.01 and theta[i] <= 0.01):
             car.Control_Car(0 , 0)
             file.close()
             exit()
