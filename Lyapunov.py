@@ -188,7 +188,7 @@ def lyapunov():
 
         # Send vel to robot
         car.Control_Car(outL , outR)
-        time.sleep(0.5)
+        time.sleep(0.4)
 
         try:
             auxOutL = outL/abs(outL)
@@ -209,6 +209,7 @@ def lyapunov():
         if (velMeas[0] == 0 and velMeas[1] == 0 and vCal[i] != 0 and wCal[i] != 0):
             auxWr = wr + auxWr #+ 2
             auxWl = wl + auxWl #+ 2
+            print("Aux" + str(auxWl) + "," + str(auxWr))
         else:
             auxWr = 0
             auxWl = 0
