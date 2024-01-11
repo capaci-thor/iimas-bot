@@ -125,9 +125,9 @@ def lyapunov():
     phiIni = 0.0 * (pi/180) #[rad]
 
     #goal coordinates [m]
-    xGoal = 1.0 #[m]
+    xGoal = 0.0 #[m]
     yGoal = 0.0 #[m]
-    phiGoal = 0.0 * (pi/180) #[rad]
+    phiGoal = 90.0 * (pi/180) #[rad]
 
     ### List
     # Creation of list for lyapunov 
@@ -248,7 +248,7 @@ def lyapunov():
                     str(l[i]) + ',' + str(rho[i]) + ',' + str(theta[i]) + ',' + str(xtmp) + ',' + str(ytmp) +
                     ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(yPos[i+1]) + '\n')
     
-        if(l[i] <= 0.1 and rho[i] <= 0.1):
+        if(l[i] <= 0.1 and rho[i] <= 0.1 and theta[i] <= 0.1):
             car.Control_Car(0 , 0)
             file.close()
             exit()
