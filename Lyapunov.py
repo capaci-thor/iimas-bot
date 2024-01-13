@@ -168,8 +168,8 @@ def lyapunov():
         theta.append( atan2(yGoal - yPos[i], xGoal - xPos[i]) - phiGoal)
 
         #control parameters
-        k1 = 0.2
-        k2 = 0.2
+        k1 = 0.3
+        k2 = 0.3
 
         # Control
 
