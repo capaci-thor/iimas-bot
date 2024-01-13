@@ -25,7 +25,7 @@ I2C_SLAVE_ADDRESS = 0x8
 # Save data in csv file
 timestamp = time.time()
 date_time = datetime.fromtimestamp(timestamp)
-str_date_time = date_time.strftime("%d-%m-%Y_%H-%M-%S")
+str_date_time = date_time.strftime("%Y-%m-%d_%H-%M-%S")
 pathDatos = '/home/rotjeot/datos/'
 file = open(pathDatos + 'datos_' + str_date_time+'.csv', 'x')
 file.write('i,vel_rigth,vel_left,v,w,vr,wr,l,rho, tetha, x,y,phi, xR, YR\n')
