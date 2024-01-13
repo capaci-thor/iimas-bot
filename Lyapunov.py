@@ -223,7 +223,7 @@ def lyapunov():
 
         print("Error l     : " + str(l[i]))
         print("Error rho   : " + str(rho[i]*(180/pi)))
-        print("Error theta : " + str(theta[i]))#*(180/pi))) 
+        print("Error theta : " + str(theta[i]*(180/pi))) 
         
         # integral
         phiPos.append( phiPos[i] + (elapsed_time * wMeas[i]) )
