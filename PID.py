@@ -133,7 +133,7 @@ while True:
     
     print("outR: " + str(outR))
 
-    car.Control_Car(0 , 0)
+    car.Control_Car(0 , outR)
 
 
     #No me importa ahorita
