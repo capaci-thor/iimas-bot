@@ -139,4 +139,5 @@ while True:
 
     vMeas.append(velMeas[0])
     wMeas.append(velMeas[1])
+    time.sleep(0.2)
 
