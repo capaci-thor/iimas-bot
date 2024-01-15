@@ -173,6 +173,10 @@ def lyapunov():
     ki = 7.0
     kd = 0.01
 
+    #aux for start
+    VelRight = 0.0
+    velLeft = 0.0 
+
     #Aux var for iteration
     i = 0
     while True:
