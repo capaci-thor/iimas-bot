@@ -129,6 +129,8 @@ while True:
         q1PID = 0
 
     outR = int(qPID * (255/500))
+    print("qPID: " + str(qPID))
+    print("outR: " + str(outR))
 
     car.Control_Car(0 , outR)
 
