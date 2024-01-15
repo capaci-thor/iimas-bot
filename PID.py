@@ -95,7 +95,7 @@ Error1 = 0.0
 Error2 = 0.0
 
 kp = 1.0
-ki = 5.0
+ki = 7.0
 kd = 0.01
 
 vMeas = []
@@ -125,8 +125,8 @@ while True:
     print("qPID_PRE: " + str(qPID))
     if(qPID > 500):
         qPID = 500
-    elif(qPID < 60):
-        q1PID = 60
+    elif(qPID < 65):
+        q1PID = 65
 
     print("qPID_POST: " + str(qPID))
     outR = int(qPID * (255/500))
