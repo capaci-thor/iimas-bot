@@ -121,7 +121,7 @@ while True:
     elapsed_time = velMeas[2]
 
     Error0R = spR - VelRight
-
+    Error0L = spL - velLeft
     #Diferential equation
 
     qPIDR = q1PIDR + (kp+kd/elapsed_time)*(Error0R) + (kp + ki*elapsed_time - 2*(kd/elapsed_time))*(Error1R) + (kd/elapsed_time)*(Error2R)
@@ -151,8 +151,8 @@ while True:
     print("qPIDL_PRE: " + str(qPIDL))
     if(qPIDL > 500):
         qPIDL = 500
-    elif(qPIDL < 63):
-        qPIDL = 63
+    elif(qPIDL < 65):
+        qPIDL = 65
 
     print("qPIDL_POST: " + str(qPIDR))
     outL = int(qPIDL * (255/500))
