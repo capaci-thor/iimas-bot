@@ -125,8 +125,8 @@ while True:
 
     if(qPID > 500):
         qPID = 500
-    elif(qPID < 60):
-        q1PID = 0
+    elif(qPID < 0):
+        q1PID = 70
 
     outR = int(qPID * (255/500))
     print("qPID: " + str(qPID))
