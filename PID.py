@@ -95,9 +95,8 @@ Error1 = 0.0
 Error2 = 0.0
 
 kp = 1.0
-ki = 1.0
+ki = 3.0
 kd = 0.01
-Tm = 0.1
 
 vMeas = []
 wMeas = []
@@ -123,12 +122,13 @@ while True:
     Error2 = Error1
     Error1 = Error0
 
-    print("qPID: " + str(qPID))
+    print("qPID_PRE: " + str(qPID))
     if(qPID > 500):
         qPID = 500
     elif(qPID < 0):
         q1PID = 100
 
+    print("qPID_POST: " + str(qPID))
     outR = int(qPID * (255/500))
     
     print("outR: " + str(outR))
@@ -142,5 +142,5 @@ while True:
 
     vMeas.append(velMeas[0])
     wMeas.append(velMeas[1])
-    time.sleep(0.2)
+    time.sleep(0.3)
 
