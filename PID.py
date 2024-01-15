@@ -87,12 +87,19 @@ def getVelocity(start_time, singL, singR):
     #return 
     return VelRight,velLeft,elapsed_time
 
-qPID = 0.0 
-q1PID = 0.0
+qPIDR = 0.0 
+q1PIDR = 0.0
 
-Error0 = 0.0
-Error1 = 0.0
-Error2 = 0.0
+Error0R = 0.0
+Error1R = 0.0
+Error2R = 0.0
+
+qPIDL = 0.0 
+q1PIDL = 0.0
+
+Error0L = 0.0
+Error1L = 0.0
+Error2L = 0.0
 
 kp = 3.0
 ki = 7.0
@@ -113,28 +120,45 @@ while True:
     velLeft = velMeas[1]
     elapsed_time = velMeas[2]
 
-    Error0 = spR - VelRight
+    Error0R = spR - VelRight
+
     #Diferential equation
 
-    qPID = q1PID + (kp+kd/elapsed_time)*(Error0) + (kp + ki*elapsed_time - 2*(kd/elapsed_time))*(Error1) + (kd/elapsed_time)*(Error2)
-    q1PID = qPID
+    qPIDR = q1PIDR + (kp+kd/elapsed_time)*(Error0R) + (kp + ki*elapsed_time - 2*(kd/elapsed_time))*(Error1R) + (kd/elapsed_time)*(Error2R)
+    q1PIDR = qPIDR
 
-    Error2 = Error1
-    Error1 = Error0
+    Error2R = Error1R
+    Error1R = Error0R
 
-    print("qPID_PRE: " + str(qPID))
+    qPIDL = q1PIDL + (kp+kd/elapsed_time)*(Error0L) + (kp + ki*elapsed_time - 2*(kd/elapsed_time))*(Error1L) + (kd/elapsed_time)*(Error2L)
+    q1PIDL = qPIDL
 
-    if(qPID > 500):
+    Error2L = Error1L
+    Error1L = Error0L
+
+    print("qPIDR_PRE: " + str(qPIDR))
+
+    if(qPIDR > 500):
         qPID = 500
     elif(qPID < 63):
         qPID = 63
 
-    print("qPID_POST: " + str(qPID))
-    outR = int(qPID * (255/500))
-    
+    print("qPIDR_POST: " + str(qPIDR))
+    outR = int(qPIDR * (255/500))
     print("outR: " + str(outR))
 
-    car.Control_Car(0 , outR)
+    ##### LEFT
+    print("qPIDL_PRE: " + str(qPIDL))
+    if(qPIDL > 500):
+        qPIDL = 500
+    elif(qPIDL < 63):
+        qPIDL = 63
+
+    print("qPIDL_POST: " + str(qPIDR))
+    outL = int(qPIDL * (255/500))
+    print("outL: " + str(outL))
+
+    car.Control_Car(outL , outR)
 
 
     #No me importa ahorita
