@@ -264,13 +264,13 @@ def lyapunov():
         
 
         #Fix vel 
-        if ((velMeas[0] == 0 and velMeas[1] == 0) and (vCal[i] != 0 or wCal[i] != 0)):
+        """ if ((velMeas[0] == 0 and velMeas[1] == 0) and (vCal[i] != 0 or wCal[i] != 0)):
             auxWr = wr + auxWr #+ 2
             auxWl = wl + auxWl #+ 2
             print("Aux" + str(auxWl) + "," + str(auxWr))
         else:
             auxWr = 0
-            auxWl = 0
+            auxWl = 0 """
 
         
         print("Velocidad Lineal Calculada : " + str(vCal[i]))
