@@ -123,13 +123,14 @@ while True:
     Error2 = Error1
     Error1 = Error0
 
+    print("qPID: " + str(qPID))
     if(qPID > 500):
         qPID = 500
     elif(qPID < 0):
-        q1PID = 70
+        q1PID = 100
 
     outR = int(qPID * (255/500))
-    print("qPID: " + str(qPID))
+    
     print("outR: " + str(outR))
 
     car.Control_Car(0 , outR)
