@@ -95,7 +95,7 @@ Error1 = 0.0
 Error2 = 0.0
 
 kp = 1.0
-ki = 3.0
+ki = 5.0
 kd = 0.01
 
 vMeas = []
@@ -142,5 +142,5 @@ while True:
 
     vMeas.append(velMeas[0])
     wMeas.append(velMeas[1])
-    time.sleep(0.3)
+    time.sleep(0.4)
 
