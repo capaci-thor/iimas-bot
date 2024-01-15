@@ -139,9 +139,9 @@ while True:
     print("qPIDR_PRE: " + str(qPIDR))
 
     if(qPIDR > 500):
-        qPID = 500
-    elif(qPID < 63):
-        qPID = 63
+        qPIDR = 500
+    elif(qPIDR < 63):
+        qPIDR = 63
 
     print("qPIDR_POST: " + str(qPIDR))
     outR = int(qPIDR * (255/500))
