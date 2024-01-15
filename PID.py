@@ -122,8 +122,8 @@ while True:
 
     Error0R = spR - VelRight
     Error0L = spL - velLeft
+    
     #Diferential equation
-
     qPIDR = q1PIDR + (kp+kd/elapsed_time)*(Error0R) + (kp + ki*elapsed_time - 2*(kd/elapsed_time))*(Error1R) + (kd/elapsed_time)*(Error2R)
     q1PIDR = qPIDR
 
