@@ -105,7 +105,7 @@ while True:
     start_time = time.time_ns()
 
     spL = 0.5 #m/s
-    spR = 1.0 #m/s
+    spR = .0 #m/s
 
     velMeas = getVelocity(start_time, 1,1)
 
@@ -123,10 +123,11 @@ while True:
     Error1 = Error0
 
     print("qPID_PRE: " + str(qPID))
+
     if(qPID > 500):
         qPID = 500
     elif(qPID < 65):
-        q1PID = 65
+        qPID = 65
 
     print("qPID_POST: " + str(qPID))
     outR = int(qPID * (255/500))
