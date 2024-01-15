@@ -105,7 +105,7 @@ while True:
     start_time = time.time_ns()
 
     spL = 0.5 #m/s
-    spR = .0 #m/s
+    spR = 0.5 #m/s
 
     velMeas = getVelocity(start_time, 1,1)
 
