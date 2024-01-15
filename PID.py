@@ -94,7 +94,7 @@ Error0 = 0.0
 Error1 = 0.0
 Error2 = 0.0
 
-kp = 1.0
+kp = 3.0
 ki = 7.0
 kd = 0.01
 
