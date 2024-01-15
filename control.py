@@ -175,7 +175,8 @@ def lyapunov():
 
     #aux for start
     VelRight = 0.0
-    velLeft = 0.0 
+    velLeft = 0.0
+    elapsed_time = 0.4
 
     #Aux var for iteration
     i = 0
