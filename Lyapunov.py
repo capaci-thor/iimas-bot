@@ -286,7 +286,7 @@ def lyapunov():
                     ',' + str(phiPos[i+1]) + ',' +  str(xPos[i+1]) + ',' +  str(yPos[i+1]) + '\n')
     
         #if(l[i] <= 0.1 and rho[i] < (10.0*(pi/180)) and rho[i] > (-10.0*(pi/180)) and theta[i] > (-10.0*(pi/180)) and theta[i] < (10.0*(pi/180))):
-        if((l[i] <= 0.05) and (phiPos[i+1]*(180/pi) < (phiGoal*(180/pi)+10) or phiPos[i+1]*(180/pi) > (phiGoal*(180/pi)-10))):
+        if((l[i] <= 0.05) and (phiPos[i+1]*(180/pi) < (phiGoal*(180/pi)+10) and phiPos[i+1]*(180/pi) > (phiGoal*(180/pi)-10))):
             car.Control_Car(0 , 0)
             file.close()
             exit()
