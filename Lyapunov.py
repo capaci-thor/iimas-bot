@@ -220,14 +220,14 @@ def lyapunov():
         except:
             auxOutR = 0
 
-        #vmin = 35
-        #if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
-        #    outL, outR = lowerVel(outL, outR)
-        #    outL = int(outL * auxOutL)
-        #    outR = int(outR * auxOutR)
+        vmin = 35
+        if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
+            outL, outR = lowerVel(outL, outR)
+            outL = int(outL * auxOutL)
+            outR = int(outR * auxOutR)
 
-        maxVel = 60
-        maxUmbral = 60
+        maxVel = 65
+        maxUmbral = 65
         if (outL > maxUmbral): outL = maxVel
         if (outR > maxUmbral): outR = maxVel
         if (outL < -maxUmbral): outL = -maxVel
