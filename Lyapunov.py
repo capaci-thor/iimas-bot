@@ -192,8 +192,8 @@ def lyapunov():
         theta.append( atan2(yGoal - yPos[i], xGoal - xPos[i]) - phiGoal)
 
         #control parameters
-        k1 = 0.3
-        k2 = 0.3
+        k1 = 0.1
+        k2 = 0.1
 
         # Control
 
@@ -220,11 +220,11 @@ def lyapunov():
         except:
             auxOutR = 0
 
-        vmin = 35
-        if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
-            outL, outR = lowerVel(outL, outR)
-            outL = int(outL * auxOutL)
-            outR = int(outR * auxOutR)
+        #vmin = 35
+        #if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
+        #    outL, outR = lowerVel(outL, outR)
+        #    outL = int(outL * auxOutL)
+        #    outR = int(outR * auxOutR)
 
         maxVel = 40
         maxUmbral = 40
