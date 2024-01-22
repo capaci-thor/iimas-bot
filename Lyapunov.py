@@ -220,7 +220,7 @@ def lyapunov():
         except:
             auxOutR = 0
 
-        vmin = 35
+        vmin = 30
         if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
             outL, outR = lowerVel(outL, outR)
             outL = int(outL * auxOutL)
