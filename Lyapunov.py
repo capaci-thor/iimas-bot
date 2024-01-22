@@ -226,11 +226,11 @@ def lyapunov():
             outL = int(outL * auxOutL)
             outR = int(outR * auxOutR)
 
-
-        if (outL > 255): outL = 255
-        if (outR > 255): outR = 255
-        if (outL < -255): outL = -255
-        if (outR < -255): outR = -255
+        maxVel = 150
+        if (outL > 255): outL = maxVel
+        if (outR > 255): outR = maxVel
+        if (outL < -255): outL = -maxVel
+        if (outR < -255): outR = -maxVel
 
         # Send vel to robot
         car.Control_Car(outL , outR)
