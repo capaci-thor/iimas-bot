@@ -226,8 +226,8 @@ def lyapunov():
             outL = int(outL * auxOutL)
             outR = int(outR * auxOutR)
 
-        maxVel = 150
-        maxUmbral = 150
+        maxVel = 200
+        maxUmbral = 200
         if (outL > maxUmbral): outL = maxVel
         if (outR > maxUmbral): outR = maxVel
         if (outL < -maxUmbral): outL = -maxVel
