@@ -220,11 +220,11 @@ def lyapunov():
         except:
             auxOutR = 0
 
-        vmin = 30
-        if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
-            outL, outR = lowerVel(outL, outR)
-            outL = int(outL * auxOutL)
-            outR = int(outR * auxOutR)
+        #vmin = 30
+        #if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
+        #    outL, outR = lowerVel(outL, outR)
+        #    outL = int(outL * auxOutL)
+        #    outR = int(outR * auxOutR)
 
         # Send vel to robot
         car.Control_Car(outL , outR)
