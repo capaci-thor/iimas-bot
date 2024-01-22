@@ -111,7 +111,31 @@ def getVelocity(start_time, singL, singR):
     #return 
     return v,w,elapsed_time
     
+def lowerVel(L, R):
+    velMin = 35
 
+    L = abs(L)
+    R = abs(R)
+
+    if( L > R):
+        try:
+            rel = L/R
+            Rout = velMin
+            Lout = rel * velMin
+        except:
+            Rout = 0
+            Lout = L
+
+    else:
+        try:
+            rel = R/L
+            Lout = velMin
+            Rout = rel * velMin
+        except:
+            Lout = 0
+            Rout = R
+
+    return Lout , Rout
 
 def lyapunov():
     #global variables
@@ -186,10 +210,6 @@ def lyapunov():
         outL = int( (slope_l * wl) + intercept_l )
         outR = int( (slope_r * wr) + intercept_r )
 
-        # Send vel to robot
-        car.Control_Car(outL , outR)
-        time.sleep(0.5)
-
         try:
             auxOutL = outL/abs(outL)
         except:
@@ -199,6 +219,23 @@ def lyapunov():
             auxOutR = outR/abs(outR)
         except:
             auxOutR = 0
+
+        vmin = 35
+        if ((outR > -vmin and  outR < vmin) or (outL > -vmin and  outL < vmin)):
+            outL, outR = lowerVel(outL, outR)
+            outL = int(outL * auxOutL)
+            outR = int(outR * auxOutR)
+
+
+        if (outL > 255): outL = 255
+        if (outR > 255): outR = 255
+        if (outL < -255): outL = -255
+        if (outR < -255): outR = -255
+
+        # Send vel to robot
+        car.Control_Car(outL , outR)
+        time.sleep(0.5)
+
         #Get real velocity
         velMeas = getVelocity(start_time, auxOutL, auxOutR)
         vMeas.append(velMeas[0])
