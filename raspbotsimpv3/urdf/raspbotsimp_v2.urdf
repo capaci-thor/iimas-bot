@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="raspbotsimp_v2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00373242974717264 0 -0.0085944899395812"
+        rpy="0 0 0" />
+      <mass
+        value="0.0820193583470578" />
+      <inertia
+        ixx="0.000124072854427031"
+        ixy="-1.08014211805405E-19"
+        ixz="-1.04253387901333E-06"
+        iyy="0.000265345846652801"
+        iyz="3.12619361778949E-21"
+        izz="0.000380290638629521" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left_Front_Link">
+    <inertial>
+      <origin
+        xyz="6.5052E-19 -0.011647 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.060645" />
+      <inertia
+        ixx="2.4304E-05"
+        ixy="2.0634E-22"
+        ixz="-9.6625E-22"
+        iyy="4.1108E-05"
+        iyz="4.3379E-22"
+        izz="2.4304E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Left_Front_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Left_Front_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Front_Joint"
+    type="continuous">
+    <origin
+      xyz="0.053697 0.084 -0.012"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Front_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="3" />
+  </joint>
+  <link
+    name="Rigth_Front_Link">
+    <inertial>
+      <origin
+        xyz="1.95156391047391E-18 0.0116472511817652 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.060644519186734" />
+      <inertia
+        ixx="2.43044573999101E-05"
+        ixy="3.31567195209983E-21"
+        ixz="-4.07297486684136E-22"
+        iyy="4.11084246412462E-05"
+        iyz="3.98893944141697E-22"
+        izz="2.43044573999101E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Rigth_Front_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Rigth_Front_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rigth_Front_Joint"
+    type="continuous">
+    <origin
+      xyz="0.053697 -0.084 -0.012"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rigth_Front_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="1"
+      velocity="3" />
+  </joint>
+  <link
+    name="Left_Rear_Link">
+    <inertial>
+      <origin
+        xyz="0 -0.011647 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.060645" />
+      <inertia
+        ixx="2.4304E-05"
+        ixy="-8.9722E-22"
+        ixz="3.7623E-21"
+        iyy="4.1108E-05"
+        iyz="2.4193E-22"
+        izz="2.4304E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Left_Rear_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Left_Rear_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Rear_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.064303 0.084 -0.012"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Rear_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="3" />
+  </joint>
+  <link
+    name="Rigth_Rear_Link">
+    <inertial>
+      <origin
+        xyz="1.3878E-17 0.011647 2.0817E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.060645" />
+      <inertia
+        ixx="2.4304E-05"
+        ixy="-8.3673E-22"
+        ixz="-1.4632E-35"
+        iyy="4.1108E-05"
+        iyz="2.9335E-19"
+        izz="2.4304E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Rigth_Rear_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp_v2/meshes/Rigth_Rear_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rigth_Rear_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.064303 -0.084 -0.012"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rigth_Rear_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="1"
+      velocity="3" />
+  </joint>
+</robot>
