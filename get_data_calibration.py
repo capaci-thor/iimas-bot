@@ -18,7 +18,7 @@ ser = Serial(
 I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 
 path = '/home/rotjeot/'
-file = open(path + 'data.csv', 'w')
+file = open(path + 'data2.csv', 'w')
 
 
 def get_msg():
@@ -65,13 +65,14 @@ def ConvertStringsToBytes(src):
 
 a = get_msg()
 file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
-for i in range(0,256,5):
-    print(i)
-    car.Car_Run(i , i)
-    sleep(1)
-    msg = get_msg()
-    to_save = str(i)+',' + msg
-    file.write(to_save)
+for i in range(0,100,5):
+    for x in range(4):
+        print(i)
+        car.Car_Run(i , i)
+        sleep(1)
+        msg = get_msg()
+        to_save = str(i)+',' + msg
+        file.write(to_save)
 
 car.Car_Run(0 , 0)
 file.close()
