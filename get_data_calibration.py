@@ -54,7 +54,7 @@ def get_msg():
     rpm_l = (vector[1]/20)*60
     vel_r = (math.pi*diametro*rpm_r)/(100*60)
     vel_l = (math.pi*diametro*rpm_l)/(100*60)
-    return str(rpm_r)+ ','+ str(vel_r) + ','+ str(rpm_l)+ ','+ str(vel_l)+'\n'
+    return str(rpm_r)+ ','+ str(vel_r) + ','+ str(rpm_l)+ ','+ str(vel_l)+str(vector[0])+str(vector[1])+'\n'
 
 
 def ConvertStringsToBytes(src):
@@ -64,7 +64,7 @@ def ConvertStringsToBytes(src):
     return converted   
 
 a = get_msg()
-file.write('pwm,rpm_r,v_r,rpm_l,v_l\n')
+file.write('pwm,rpm_r,v_r,rpm_l,v_l,c_r,c_l\n')
 for i in range(0,100,5):
     for x in range(4):
         print(i)
