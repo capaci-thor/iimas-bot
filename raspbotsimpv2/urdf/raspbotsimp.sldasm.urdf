@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="raspbotsimp.sldasm">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0037324 -1.7347E-18 -0.0085945"
+        rpy="0 0 0" />
+      <mass
+        value="0.082019" />
+      <inertia
+        ixx="0.00012407"
+        ixy="-9.4774E-20"
+        ixz="-1.0425E-06"
+        iyy="0.00026535"
+        iyz="1.2519E-21"
+        izz="0.00038029" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_L_link">
+    <inertial>
+      <origin
+        xyz="1.6263E-18 0 0.0013705"
+        rpy="0 0 0" />
+      <mass
+        value="0.060567" />
+      <inertia
+        ixx="2.4289E-05"
+        ixy="8.5032E-37"
+        ixz="2.8138E-22"
+        iyy="2.4289E-05"
+        iyz="3.9413E-21"
+        izz="4.1108E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/front_L_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/front_L_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_L_joint"
+    type="revolute">
+    <origin
+      xyz="0.053697 0.072 -0.012"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_L_link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="front_R_link">
+    <inertial>
+      <origin
+        xyz="1.0842E-18 6.9389E-18 -0.0013705"
+        rpy="0 0 0" />
+      <mass
+        value="0.060567" />
+      <inertia
+        ixx="2.4289E-05"
+        ixy="8.6146E-37"
+        ixz="4.5743E-22"
+        iyy="2.4289E-05"
+        iyz="3.9413E-21"
+        izz="4.1108E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/front_R_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/front_R_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_R_joint"
+    type="revolute">
+    <origin
+      xyz="0.053697 -0.072 -0.012"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_R_link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rear_L_Link">
+    <inertial>
+      <origin
+        xyz="1.0842E-18 -1.3878E-17 0.0013705"
+        rpy="0 0 0" />
+      <mass
+        value="0.060567" />
+      <inertia
+        ixx="2.4289E-05"
+        ixy="-2.4524E-38"
+        ixz="-4.7471E-22"
+        iyy="2.4289E-05"
+        iyz="-9.1385E-38"
+        izz="4.1108E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/Rear_L_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/Rear_L_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_L_joint"
+    type="revolute">
+    <origin
+      xyz="-0.064303 0.072 -0.012"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_L_Link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rear_R_Link">
+    <inertial>
+      <origin
+        xyz="1.0842E-18 0 -0.0013705"
+        rpy="0 0 0" />
+      <mass
+        value="0.060567" />
+      <inertia
+        ixx="2.4289E-05"
+        ixy="2.4524E-38"
+        ixz="4.7471E-22"
+        iyy="2.4289E-05"
+        iyz="-9.1385E-38"
+        izz="4.1108E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/Rear_R_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://raspbotsimp.sldasm/meshes/Rear_R_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_R_joint"
+    type="revolute">
+    <origin
+      xyz="-0.064303 -0.072 -0.012"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_R_Link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>
